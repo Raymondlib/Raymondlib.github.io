@@ -1,0 +1,620 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-fences-math .MathJax_SVG_Display, .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: visible; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; zoom: 90%; }
+#math-inline-preview-content { zoom: 1.1; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-math .MathJax_SVG_Display { margin-top: 8px; cursor: default; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 0.3em;
+    font-size: 2.2em;
+    line-height: 1.2;
+    margin: 2.4em auto 1.2em;
+    color: var(--main-10);
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0em 0;
+    margin-top:0;
+    margin-bottom:0rem;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ :root {--mermaid-font-zoom:2.295em ;} 
+</style><title>政治经济</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p>&nbsp;</p><h1 id='摘录自天涯kkndme'><span>摘录自天涯kkndme</span></h1><p><a href='https://github.com/shengcaishizhan/kkndme_tianya'><span>原文地址</span></a></p><ul><li><p><span>所有的政策都指向无辜的普通消费者，而真正在幕后操纵房价的大老虎：地方政府和大型开发商却毫发无损。即使那些被大肆渲染的所谓炒家，也并非能够呼风唤雨，他们不过是被当成了掩人耳目的活靶子和替罪羊。</span></p></li><li><p><span>政策制定者却将始终位于道德制高点，他们的“初衷”永远“是好的”，但“在执行过程中”永远“会出现问题”，大众只好拼命痛骂那些“执行不力者”，只好拿那些无足轻重的小角色来出气。只好不断的用幻想来安慰和麻痹自己，然后无奈地等待下去，期待奇迹出现.....</span></p></li><li><p><span>我们也是这样，初衷永远是好的，学习，执行过程中，分心，做无关痛痒的小任务，来安慰和麻痹自己，然后无奈地等待下去，期待奇迹出现</span></p></li><li><p><span>佛说众生皆苦，快乐其实也是一种苦，只是你把它当成一种快乐而已。苦乐转换定律。苦是未来的乐，乐是未来的苦。苦乐兼半，欲乐必先苦</span></p></li><li><p><span>大众的业余生活又被娱乐圈无聊的八卦以及抖音上的声色犬马，纸醉金迷塞满了视听。大众的视野愈发狭窄片面，情绪越发容易被挑逗，煽动，失去了独立思考的能力、</span></p></li><li><p><span>你和你们家里的羊是一条心吗？羊的愿望是好好生活方式，他们的愿望是吃羊肉</span></p></li><li><p><span>司马迁遭受的心理打击很大。但也正是这样不幸的遭遇，促使他发愤著书。发愤图强</span></p></li><li><p><span>得人心者，得天下</span></p></li><li><p><span>看历史要看书写者的立场，现在看新闻也是，交往朋友也是、</span></p></li><li><p><span>天下共13州，魏国占据了9州，总人口500多万；吴国占据了3州，200多万人口；蜀国占据1州，90多万人口。诸葛亮清晰认识到偏安一隅者，不能久安</span></p></li><li><p><span>富人的税、权贵的税，都会被规避。真正纳税的，是小资产阶级和中产阶级。政府干涉的经济投资，必然意味着资金不能得到充分利用。利益从上向下传导，会越来越少，经过层层扒皮，财富去往了富人阶层和权贵阶层</span></p></li><li><p><span>看了几百本书，几千本书，不精读，不思考，最后能炫耀的只有那几个数字，脑袋中依然空空如也，浪费时间</span></p></li><li><p><span>很多道理，你八岁就知道了，但是到了八十岁还没学会应用，这就算书呆子了。以不变应万变，贪小便宜吃大亏。贪娱乐，吃大亏</span></p></li><li><p><span>不要超前消费，不要超过自己的能力做事</span></p></li><li><p><span>治国需要用贪官、反贪官</span></p></li><li><p><span>几千年来，唱的都是同样的戏，只不过台上的演员变换而已。历史规律是不变的，变化的只是时间、地点、人物、事件</span></p></li><li><p><span>聪明智慧决定了人的眼界，有远见的人一定会未雨绸缪。刘邦身为区区亭长可以得天下，朱元璋一个穷和尚驱除鞑虏重建朝廷，个人的智慧和才干决定了个人的命运</span></p></li><li><p><span>当初人家咬牙买房的时候，另一些人还在追求所谓的生活品质。性格决定了命运</span></p></li><li><p><span>历朝历代，统治者代表的都是地主阶级的利益。历朝历代的</span><strong><span>改革都只是为了缓和底层群众与地主阶级的矛盾</span></strong><span>，防止因为过激发生极端群体性事件。</span></p></li><li><p><span>调控也是为了缓和矛盾，要温水煮青蛙，而不要一把火把青蛙烧死。</span></p></li><li><p><span>以前的科举制度与现在的公务员考试制度基本目的都是相同的，让全天下的优秀的和不优秀但有出身的知识分子依附于官，这样就有了绝对的话语权。</span></p></li><li><p><span>要用发展的眼光看问题，只要努力，只会越来越好，越来越轻松</span></p></li><li><p><span>存钱不如存房子、存木头、存树</span></p></li><li><p><span>反腐既然并不是集权系统中真正的改革</span></p></li><li><p><span>用贪官以结其忠，弃贪官以肃异己，杀大贪以平民愤，没其财以充宫用，此乃千古帝王之术也</span></p></li><li><p><span>只要一方拥有了特权，那么一定意味着竞争是不公平的，禁止了权利阶层经商，也就禁止了官家与民争利，这也是北宋繁荣的根本所在</span></p></li><li><p><span>哪怕当个农民也必须了解zf的意图，否则可能评为富农被批斗</span></p></li><li><p><span>只有努力工作赚钱才是唯一能抵抗通胀的办法</span></p></li><li><p><span>80年代，那时的人们靠省吃俭用积攒出节余，被消耗在自行车、手表、缝纫机上。通过不断的劳动，才能吃饱饭，才能攒点钱买三大件取媳妇。</span></p></li><li><p><span>zf通过不断稀释货币的实际购买能力，并且对粮食等生活必需品实行平准制度，一方面保证了绝大多数人民的基本吃饭问题，另一方面让中下层群众手中的余钱基本消耗在特定的商品上，以至于不得不马不停蹄的劳作，这才能保证社会的稳定和向前发展。上层精英就可坐享其成。</span></p></li><li><p><span>有些资源会变成富人间的游戏（比如现在的古董，字画），完全失去群众基础；而如果与生活密切相关的资源过度集中，一定会爆发极端冲突事件，造成社会动荡。</span></p></li><li><p><span>压低建设成本，抬高售价，中间的利润由商人和权贵进行分配，这是官商结合的通行做法。自古以来，能够赚大钱的都是红顶商人，而不是普通个体户</span></p></li><li><p><span>当农产品价格以几年翻10倍甚至几十倍的速度上涨的时候，房产却相对滞涨。这是最有可能的下跌方式</span></p></li><li><p><span>我们的商品卖到了国外，换回的是外汇。国内的商品少了，就变贵了。换回的外汇，国家就会按照外汇的总金额依据汇率全都印成人民币，投放到社会。社会上不但商品变少了，每年还会多印出一大堆钞票，这就是通货膨胀。货币的购买力在持续贬值，国家通过货币持续贬值来收割普通劳动者的羊毛</span></p></li><li><p><span>为什么美国人工成本高，物品价格低于中国</span></p><ul><li><span>惊人的腐败成本</span></li></ul><ul><li><span>过渡依靠政府投资，政府投资效率是最底下的</span></li></ul><ul><li><span>高昂的行政成本，降低管理成本</span></li></ul></li><li><p><span>中国正走向低收入高消费的畸形社会结构，群众生活越艰难，权贵的生活就会越富足。</span></p></li><li><p><span>美国人不可能允许所有的人都过上他们那样的高消耗生活，所以美国人就尽可能地创造无产阶级国家来为其当奴隶进行打工，中国的现状也一样，利益集团以及国家政府为了其利益以及维稳庞大的执政集团必须要通过工具将更多的人丧失生产资料以便当其奴隶。试想如果人人都有房住，人人都有闲钱可以自由的选择生活方式，我们以出口为主的血汗工厂还能招得到工人吗？北上广还能存在这么多外资企业吗？外资企业没的话，没这么多就业机会，所有的外地人回家了，上海的办公楼，出租房不全完蛋了</span></p></li><li><p><span>决定一个国家是否能繁荣昌盛下去，和大企业几乎无关，民间的小微企业才是真正的动力。</span></p></li><li><p><span>愚民教育会让很多人丧失了基本思考能力，活在自己内心创造的乌托邦中，自觉是这个世界舞台的中心与焦点，自认为能影响世界格局，认不清自己，认不清现实。眼界决定格局，格局决定结局</span></p></li><li><p><span>中国的权力结构造成了这种轮回必不能被破除，在高度集权的封建社会，帝国调动资源的能力是无可比拟的。正是利用这种调度资源的能力，封建官僚才获得了社会经济生活的支配权。在这种权力之下，天下无不可为之事，无不可夺之财。再好的政策，执行下来结果都是变成了劳民伤财。在这种权力下，百姓的人身财产毫无安全可言，被肆意剥夺。</span></p></li><li><p><span>任何税种最终都要转嫁到社会最底层群众身上。丛林法则实际就是大鱼吃小鱼，小鱼吃虾米。房产税只是一项苛捐杂税，目的是补充财政收入，并没有降低房价和租金的功能，并且只能导致租金的上涨。怕房产税的应该是租客，而不是房东</span></p></li><li><p><span>巨量资金必须有地方去，如今面临的房地产和农产品之间的选择，你认为zf会怎么做？</span></p></li><li><p><span>zf建设两限房限制开发商利润，开发商必然偷工减料，zf都知道怎么回事，必须争一只眼闭一只眼，否则这个政策就执行不下去了</span></p></li><li><p><span>这就是中国集中发展极少数标杆城市所造成的呀，也是因为如此，才造成了中国金子塔式的收入结构，贫富差距越来越悬殊。</span></p></li><li><p><span>一般裁减公务员都是专门裁那些没背景，没关系，不会拍马屁，傻干活的。而留下的就是有背景有关系，会拍马而不干活的。</span></p></li><li><p><span>自古以来，最多的就是失去土地的农民，住在地主家做长工，又何谈属于自己的房子。中国自古以来都不是人人都能有属于自己的房子，大量的丫鬟、仆妇、管家、小厮寄养在权贵人家，身体都是不自由的，何谈拥有自己的房子。</span></p></li><li><p><span>从几千年的历史来看，现在确实是最幸福的，最强的科技变化，</span></p></li><li><p><span>明朝以后大量的商人移居海外成了华侨，现今的商人为了安全移居海外也不是什么新鲜事，不过是步明朝华侨的后尘罢了，zf会真的放在心上吗？朱元璋没有放在心上，朱棣没有放在心上，现在同样也不会放在心上。</span></p></li><li><p><span>中国自古以来，商人都是没有地位的，商人的财产可以随时被官员没收，自古如此，至今如此</span></p></li><li><p><span>zf不是不知道问题的根源，而是不愿意放弃巨大的利益。所有人都知道问题，但是不会改正</span></p></li><li><p><span>官方的统计数据不可完全相信</span></p></li><li><p><span>资本不是傻子，一定会趋利，所以资本放弃了操心受累不挣钱的实体经济，转而投向房地产。房地产的调控，让资本又进入了黄金、农产品领域参与爆炒，反正就是不进实体经济。因为国家不给实体经济的环境做任何的改善。【改善事业的环境和条件，心理】</span></p></li><li><p><span>一是税赋太高，二是各种需要打点孝敬的部门、管理人员、工作人员太多，比税赋还高，不能承受之重。三是国家队在各个重要领域的垄断，使国企变成了变相税务局的职能，垄断企业的暴利定价，又是压在本应该蓬勃发展的实体经济上的又一座大山。</span></p></li><li><p><span>至于苦等廉租房的同志，不要抱太大的希望。城市要建设，地铁，广场，政府大楼都要上马，钱从哪里来？不会无缘无故凭空出来</span></p></li><li><p><span>事情不能简单用正确还是错误来评价，一件事物发生一定有发生的原因。你说皇帝统治老百姓，想杀谁杀谁是正确还是错误？如果是错的，但是却在中国延续了几千年。</span></p></li><li><p><span>利益驱动着社会的发展，违背统治阶层利益的事情即使出台也难以执行，最后的下场都是不了了之。【建立搞实业人格】</span></p></li><li><p><span>将来，有地可耕的农民将会成为都市中的底层群众羡慕的对象，农民有地有住宅有粮食。进可以在城市打工，有聪明的甚至通过经商迈进富人阶层，退可以回乡种田，虽然现钱不多，但是吃穿住行都是没有问题的</span></p></li><li><p><span>为什么我们认可肉馅从2毛钱涨到4块钱的既定事实，但是却不能想象现在的物价会在未来的10年再涨20倍呢</span></p></li><li><p><span>关于通货膨胀问题，体制内的职工工资一定会与时俱进的。体制外人员的薪水不取决于通货膨胀，而是取决于行业的利润率，企业的利润和个人的能力运气。对于多数竞争激烈，产能过剩行业内的民营企业一般员工，工资增长是很难抵御通胀的，而且由于通胀导致生产成本的价格上涨，减薪甚至裁员的可能反而更大</span></p></li><li><p><span>正是由于国内商品的内需不足，完全依靠低附加值商品出口创汇，才造成了人民币的外升内贬</span></p></li><li><p><span>如果将来推出房产税就更好笑了。精英阶层谈笑风声，小白领神情紧张，最终结果是全部转嫁租房客。高房价的根本原因是由于货币发行泛滥和收入分配不公。这个根本问题不解决房价不可能下降。</span></p></li><li><p><span>中国的新闻最不可信，为了抓眼球不惜胡编乱造，不惜前后自相矛盾。【不要看新闻，不要刷知乎】</span></p></li><li><p><span>5万一平的房子对于中国的精英阶层真算不上什么。500、600万一套的房子一次性付清的人群在北京大把的存在着。这是很多工薪阶层一辈子都觉得不可能挣到的财富，但对于另外一些人却可以轻而易举的拿出来。平均工资的概念在中国是完全没有用处的。</span></p></li><li><p><span>权力只对来源负责。简单点说，谁给你官当，你就对谁负责。只要上面的认为对就好了，什么老百姓，什么国家社会统统玩蛋去</span></p></li><li><p><span>不管是房虫也好，“温州炒房团”也好，其他投资者也罢，他们其实绝大部分都来自于社会公众，并非ZF的“嫡系部队”，那ZF的嫡系是谁呢？当然是开发商。政府官员可以从开发商那里直接得到巨额的利益输送，却无法直接从民间二手房的交易中获取收益。这是因为：二手房的销售是分散的</span></p></li><li><p><span>中国人可以说是全世界最勤劳的民族，但是大量勤劳的中国人却过着低水准的生活。这与中国的国富民穷，藏富于国，与民争利的政策是分不开的。拉美国家尽管有这样那样的问题，但是确实是法制国家与民主国家，私人财产神圣不可侵犯，这是与中国完全没有可比性的。</span></p></li><li><p><span>除了房价高，贷款也没那么容易。而且除了房子，各方面的花销都会涨得离谱，这是太平盛世后期的普遍规律。阶级固化</span></p></li></ul></div></div>
+</body>
+</html>
